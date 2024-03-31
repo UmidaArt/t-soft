@@ -1,0 +1,17 @@
+.cardsBlock {
+    display: flex;
+    justify-content: space-around;
+}
+.cardItem {
+    width: 150px;
+    height: 100px;
+    border: 1px solid gray;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.cardItem:hover {
+    background-color: #1976d2;
+    color: white;
+    transition-duration: 0.3s;
+}

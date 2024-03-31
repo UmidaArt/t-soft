@@ -13,8 +13,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import {Link} from 'react-router-dom';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const pages = ['Home', 'About', 'Contact', 'Login', 'Register'];
+const pages = [{path:'/', title:'Home'}, {path:'/about', title:'About'}, {path:'/contact', title:'Contact'}, {path:'/login', title:'Login'}, {path:'/register', title:'Register'}];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -55,7 +56,7 @@ function ResponsiveAppBar() {
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        Exclusive
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -88,9 +89,9 @@ function ResponsiveAppBar() {
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                <MenuItem key={page.path} onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
-                                        <Link style={{textDecoration: "none", color: "white"}} to={`${page}`}>{page}</Link>
+                                        <Link style={{textDecoration: "none", color: "white"}} to={page.path}>{page.title}</Link>
                                     </Typography>
                                 </MenuItem>
                             ))}
@@ -118,13 +119,18 @@ function ResponsiveAppBar() {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
-                                key={page}
+                                key={page.path}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                <Link style={{textDecoration: "none", color: "white"}} to={`${page}`}>{page}</Link>
+                                <Link style={{textDecoration: "none", color: "white"}} to={page.path}>{page.title}</Link>
                             </Button>
                         ))}
+                    </Box>
+                    <Box>
+                        <IconButton color="inherit">
+                            <ShoppingCartIcon />
+                        </IconButton>
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>

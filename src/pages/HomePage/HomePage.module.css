@@ -1,0 +1,8 @@
+.homePage {
+    padding: 0 30px 30px;
+}
+.products {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
